@@ -70,7 +70,7 @@ motif_plot
 ggsave(filename = "1.png", width = 12, height = 12, dpi = 500)
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151543433.png" style="zoom: 25%;" />
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151646355.png" style="zoom:25%;" />
 
 ### With tree
 
@@ -84,7 +84,7 @@ motif_plot
 ggsave(filename = "2.png", width = 12, height = 12, dpi = 500)
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151545834.png" style="zoom:25%;" />
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151647846.png" style="zoom:25%;" />
 
 # show motif(s)
 
@@ -101,7 +101,7 @@ motif.info %>%
   theme_bw()
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151636699.png" style="zoom:25%;" />
+<img src="C:/Users/xiang/Desktop/3.png" style="zoom:25%;" />
 
 ```
 filepath <- system.file("examples", "meme.txt", package = "ggmotif")
@@ -123,7 +123,7 @@ for (i in unique(motif.info$motif.num)) {
 cowplot::plot_grid(plotlist = plot.list, ncol = 5)
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151637401.png" style="zoom:25%;" />
+![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151648785.png)
 
 # :sparkling\_heart: Contributing
 
