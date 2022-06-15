@@ -101,7 +101,7 @@ motif.info %>%
   theme_bw()
 ```
 
-![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151636699.png)
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151636699.png" style="zoom:25%;" />
 
 ```
 filepath <- system.file("examples", "meme.txt", package = "ggmotif")
@@ -123,7 +123,7 @@ for (i in unique(motif.info$motif.num)) {
 cowplot::plot_grid(plotlist = plot.list, ncol = 5)
 ```
 
-![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151637401.png)
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151637401.png" style="zoom:25%;" />
 
 # :sparkling\_heart: Contributing
 
