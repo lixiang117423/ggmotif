@@ -70,7 +70,7 @@ motif_plot
 ggsave(filename = "1.png", width = 12, height = 12, dpi = 500)
 ```
 
-![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151543433.png)
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151543433.png" style="zoom: 25%;" />
 
 ### With tree
 
@@ -84,7 +84,7 @@ motif_plot
 ggsave(filename = "2.png", width = 12, height = 12, dpi = 500)
 ```
 
-![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151545834.png)
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151545834.png" style="zoom:25%;" />
 
 # :sparkling\_heart: Contributing
 
