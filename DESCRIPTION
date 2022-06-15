@@ -1,0 +1,19 @@
+Package: ggmotif
+Type: Package
+Title: Extract and Visualize Motif Information from MEME Software
+Version: 0.1.2
+Author: Xiang LI
+Maintainer: Xiang LI <lixiang117423@foxmail.com>
+Description: Extract and visualize motif information from XML file from MEME software. 
+    In biology, a motif is a nucleotide or amino acid sequence pattern that is widespread 
+    and usually assumed to be related to specifical biological functions. 
+    There exist many software was used to discover motif sequences from a set of nucleotide 
+    or amino acid sequences. MEME is almost the most used software to detect motif. 
+    It's difficult for biologists to extract and visualize the location of a motif 
+    on sequences from the results from MEME software.
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports: tidyverse,dplyr,XML,magrittr,ggplot2,stringr,ggtree,ape,aplot,patchwork
+RoxygenNote: 7.2.0
