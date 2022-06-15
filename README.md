@@ -55,7 +55,7 @@ filepath <- system.file("examples", "meme.xml", package="ggmotif")
 motif.info.2 <- getMotifFromMEME(data = filepath, format="xml")
 ```
 
-## Plot location
+# Plot location
 
 The figures from MEME only contain the location. It is difficult to combine the location figure to the corresponding phylogenetic tree. In `ggmotif`, the function `motifLocation`  can visualize the location of each motif on its corresponding sequences, almost same as the `html` file. If user have the corresponding phylogenetic tree,  the function can combine the tree and the location.
 
@@ -85,6 +85,45 @@ ggsave(filename = "2.png", width = 12, height = 12, dpi = 500)
 ```
 
 <img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151545834.png" style="zoom:25%;" />
+
+# show motif(s)
+
+```R
+filepath <- system.file("examples", "meme.txt", package = "ggmotif")
+motif.info <- getMotifFromMEME(data = filepath, format = "txt")
+
+# show one motif
+motif.info %>%
+  dplyr::select(2, 4) %>%
+  dplyr::filter(motif.num == "Motif.2") %>%
+  dplyr::select(2) %>%
+  ggseqlogo::ggseqlogo() +
+  theme_bw()
+```
+
+![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151636699.png)
+
+```
+filepath <- system.file("examples", "meme.txt", package = "ggmotif")
+motif.info <- getMotifFromMEME(data = filepath, format = "txt")
+
+# show all motif
+plot.list <- NULL
+
+for (i in unique(motif.info$motif.num)) {
+  motif.info %>%
+    dplyr::select(2, 4) %>%
+    dplyr::filter(motif.num == i) %>%
+    dplyr::select(2) %>%
+    ggseqlogo::ggseqlogo() +
+    labs(title = i) +
+    theme_bw() -> plot.list[[i]]
+}
+
+cowplot::plot_grid(plotlist = plot.list, ncol = 5)
+```
+
+![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151637401.png)
 
 # :sparkling\_heart: Contributing
 
