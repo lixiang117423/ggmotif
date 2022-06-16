@@ -20,7 +20,18 @@ The demo data, the AP2 gene family of *Arabidopsis thaliana*, was downloaded fro
 meme ara.fa -protein -o meme_out -mod zoops -nmotifs 10 -minw 4 -maxw 7 -objfun classic -markov_order 0
 ```
 
-The output files, `html`file, `txt` file and `xml` file, can be found at [GitHub](https://github.com/lixiang117423/ggmotif).
+The output files, `html`file, `txt` file and `xml` file, can be found at [GitHub](https://github.com/lixiang117423/ggmotif/tree/main/inst/demo_data).
+
+# Construction of phylogenetic tree
+
+clustalo (V1.2.4) and FastTree (V2.1.10) were used  to align the sequences and construct the phylogenetic tree.
+
+```bash
+clustalo -i ara.fa > ara.aligned.fa
+FastTree ara.aligned.fa > ara.twk
+```
+
+The output files can be found at [GitHub](https://github.com/lixiang117423/ggmotif/tree/main/inst/demo_data).
 
 # Installation and loading
 
