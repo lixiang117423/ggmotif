@@ -88,10 +88,10 @@ motif_extract <- getMotifFromMEME(data = filepath, format="xml")
 motif_plot <- motifLocation(data = motif_extract)
 motif_plot
 
-ggsave(filename = "1.png", width = 12, height = 12, dpi = 500)
+ggsave(filename = "1.png", width = 6, height = 6, dpi = 300)
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151646355.png" style="zoom:25%;" />
+<img src="C:/Users/xiang/Desktop/1.png" style="zoom:25%;" />
 
 ### With tree
 
