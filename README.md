@@ -91,7 +91,7 @@ motif_plot
 ggsave(filename = "1.png", width = 6, height = 6, dpi = 300)
 ```
 
-<img src="C:/Users/xiang/Desktop/1.png" style="zoom:25%;" />
+<img src="https://github.com/lixiang117423/ggmotif/blob/main/inst/image/1.png" style="zoom:25%;" />
 
 ### With tree
 
@@ -105,7 +105,7 @@ motif_plot
 ggsave(filename = "2.png", width = 8, height = 6, dpi = 300)
 ```
 
-<img src="C:/Users/xiang/Desktop/2.png" style="zoom: 25%;" />
+<img src="https://github.com/lixiang117423/ggmotif/blob/main/inst/image/2.png" style="zoom: 25%;" />
 
 # show motif(s)
 
@@ -122,7 +122,7 @@ motif.info %>%
   theme_bw()
 ```
 
-<img src="C:/Users/xiang/Desktop/3.png" style="zoom:25%;" />
+<img src="https://github.com/lixiang117423/ggmotif/blob/main/inst/image/3.png" style="zoom:25%;" />
 
 ```
 filepath <- system.file("examples", "meme.txt", package = "ggmotif")
@@ -144,7 +144,7 @@ for (i in unique(motif.info$motif.num)) {
 cowplot::plot_grid(plotlist = plot.list, ncol = 5)
 ```
 
-![](C:/Users/xiang/Desktop/4.png)
+![](https://github.com/lixiang117423/ggmotif/blob/main/inst/image/4.png)
 
 # :sparkling\_heart: Contributing
 
