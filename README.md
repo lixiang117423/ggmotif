@@ -12,6 +12,16 @@ College of Plant Protection, Yunnan Agricultural University
 
 <a href="https://blog.web4xiang.top/" class="uri">https://blog.web4xiang.top/</a>
 
+# Identification of motifs
+
+The demo data, the AP2 gene family of *Arabidopsis thaliana*, was downloaded from [Plant Transcription Factor Database](http://planttfdb.gao-lab.org/family.php?sp=Ath&fam=AP2). The latest version MEME, v5.4.1, was used search motifs from the demo data using the fellow code:
+
+```bash
+meme ara.fa -protein -o meme_out -mod zoops -nmotifs 10 -minw 4 -maxw 7 -objfun classic -markov_order 0
+```
+
+The output files, `html`file, `txt` file and `xml` file, can be found at [GitHub](https://github.com/lixiang117423/ggmotif).
+
 # Installation and loading
 
 - Install the latest developmental version from [GitHub](https://github.com/lixiang117423/ggmotif) as follow:
