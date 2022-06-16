@@ -97,15 +97,15 @@ ggsave(filename = "1.png", width = 6, height = 6, dpi = 300)
 
 ```R
 filepath <- system.file("examples", "meme.xml", package = "ggmotif")
-treepath <- system.file("examples", "tree.nwk", package="ggmotif")
+treepath <- system.file("examples", "ara.nwk", package="ggmotif")
 motif_extract <- getMotifFromMEME(data = filepath, format="xml")
 motif_plot <- motifLocation(data = motif_extract, tree = treepath)
 motif_plot
 
-ggsave(filename = "2.png", width = 12, height = 12, dpi = 500)
+ggsave(filename = "2.png", width = 8, height = 6, dpi = 300)
 ```
 
-<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151647846.png" style="zoom:25%;" />
+<img src="C:/Users/xiang/Desktop/2.png" style="zoom: 25%;" />
 
 # show motif(s)
 
@@ -144,7 +144,7 @@ for (i in unique(motif.info$motif.num)) {
 cowplot::plot_grid(plotlist = plot.list, ncol = 5)
 ```
 
-![](https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202206151648785.png)
+![](C:/Users/xiang/Desktop/4.png)
 
 # :sparkling\_heart: Contributing
 
