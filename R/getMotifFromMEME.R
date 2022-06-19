@@ -1,5 +1,5 @@
 #' @name getMotifFromMEME
-#' @author Xiang LI <lixiang117423@@foxmail.com>
+#' @author Xiang LI <lixiang117423@@gmail.com>
 #'
 #' @title Extract and Visualize Motif Information from MEME Software
 #' @description
@@ -27,7 +27,7 @@ utils::globalVariables(c(
   "V1","five","end.sym","row.num","nchar.1","nchar.2",
   'seq.id','position','width','input.seq.id','motif_id',
   'start.position','end.position','start','end','y','Genes',
-  'Motif','x.min','x.max','y.min','y.max'
+  'Motif','x.min','x.max','y.min','y.max',"."
 ))
 
 getMotifFromMEME <- function(data, format="txt") {

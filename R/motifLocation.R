@@ -1,5 +1,5 @@
 #' @name motifLocation
-#' @author Xiang LI <lixiang117423@@foxmail.com>
+#' @author Xiang LI <lixiang117423@@gmail.com>
 #'
 #' @title Extract and Visualize Motif Information from MEME Software
 #' @description
@@ -14,6 +14,8 @@
 #' @importFrom ggtree ggtree geom_tiplab
 #' @importFrom ape read.tree
 #' @importFrom grid unit
+#' @importFrom patchwork align_plots
+#' @importFrom tidyverse tidyverse_conflicts
 #'
 #' @examples
 #' # without phylogenetic tree
@@ -31,7 +33,7 @@
 #'
 #' @return Return a plot
 utils::globalVariables(c(
-  "seq.id", "position", "width", "input.seq.id", "motif_id",
+  "seq.id", "position", "width", "input.seq.id", "motif_id",".",
   "start.position", "end.position", "start", "end", "y", "Genes",
   "Motif", "x.min", "x.max", "y.min", "y.max","isTip","label","motif_extract"
 ))
