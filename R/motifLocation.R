@@ -23,7 +23,7 @@
 #'
 #' # with phylogenetic tree
 #' filepath <- system.file("examples", "meme.xml", package = "ggmotif")
-#' treepath <- system.file("examples", "tree.nwk", package="ggmotif")
+#' treepath <- system.file("examples", "ara.nwk", package="ggmotif")
 #' motif_extract <- getMotifFromMEME(data = filepath, format="xml")
 #' motif_plot <- motifLocation(data = motif_extract, tree = treepath)
 #'
@@ -33,11 +33,11 @@
 utils::globalVariables(c(
   "seq.id", "position", "width", "input.seq.id", "motif_id",
   "start.position", "end.position", "start", "end", "y", "Genes",
-  "Motif", "x.min", "x.max", "y.min", "y.max"
+  "Motif", "x.min", "x.max", "y.min", "y.max","isTip","label","motif_extract"
 ))
 
-motifLocation <- function(data, tree.path = NULL) {
-  if (is.null(tree.path)) {
+motifLocation <- function(data, tree = NULL) {
+  if (is.null(tree)) {
     my.gene <- data %>%
       dplyr::select(
         "input.seq.id", "length", "motif_id",
@@ -85,11 +85,11 @@ motifLocation <- function(data, tree.path = NULL) {
 
     return(p)
   } else {
-    p.tree <- ape::read.tree(tree.path) %>%
+    p.tree <- ape::read.tree(tree) %>%
       ggtree::ggtree(branch.length = "none") +
       theme(plot.margin = unit(c(0, -3, 0, 0), "cm"))
 
-    my.tree <- ape::read.tree(file = tree.path) %>% ggtree::ggtree()
+    my.tree <- ape::read.tree(file = tree) %>% ggtree::ggtree()
 
     tree.location <- my.tree[["data"]] %>%
       dplyr::filter(isTip == "TRUE") %>%

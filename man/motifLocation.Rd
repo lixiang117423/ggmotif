@@ -22,7 +22,7 @@ motif_plot <- motifLocation(data = motif_extract)
 
 # with phylogenetic tree
 filepath <- system.file("examples", "meme.xml", package = "ggmotif")
-treepath <- system.file("examples", "tree.nwk", package="ggmotif")
+treepath <- system.file("examples", "ara.nwk", package="ggmotif")
 motif_extract <- getMotifFromMEME(data = filepath, format="xml")
 motif_plot <- motifLocation(data = motif_extract, tree = treepath)
 
