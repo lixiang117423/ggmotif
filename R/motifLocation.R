@@ -1,5 +1,5 @@
 #' @name motifLocation
-#' @author Xiang LI <lixiang117423@@gmail.com>
+#' @author Xiang LI <lixiang117423@@foxmail.com>
 #'
 #' @title Extract and Visualize Motif Information from MEME Software
 #' @description

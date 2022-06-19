@@ -3,7 +3,7 @@ Type: Package
 Title: Extract and Visualize Motif Information from MEME Software
 Version: 0.1.3
 Author: Xiang LI
-Maintainer: Xiang LI <lixiang117423@gmail.com>
+Maintainer: Xiang LI <lixiang117423@foxmail.com>
 Description: Extract and visualize motif information from XML file from MEME software. 
     In biology, a motif is a nucleotide or amino acid sequence pattern that is widespread 
     and usually assumed to be related to specifical biological functions. 

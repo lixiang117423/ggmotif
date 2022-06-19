@@ -28,5 +28,5 @@ motif_plot <- motifLocation(data = motif_extract, tree = treepath)
 
 }
 \author{
-Xiang LI <lixiang117423@gmail.com>
+Xiang LI <lixiang117423@foxmail.com>
 }
