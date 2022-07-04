@@ -166,7 +166,7 @@ getMotifFromMEME <- function(data, format="txt") {
         width = as.numeric(width)
       ) %>%
       dplyr::mutate(
-        start.position = position,
+        start.position = position + 1,
         end.position = position + width
       ) %>%
       dplyr::select(
