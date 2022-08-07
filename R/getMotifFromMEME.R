@@ -16,21 +16,21 @@
 #'
 #' @examples
 #' filepath <- system.file("examples", "meme.txt", package = "ggmotif")
-#' motif.info <- getMotifFromMEME(data = filepath, format="txt")
+#' motif.info <- getMotifFromMEME(data = filepath, format = "txt")
 #'
-#' filepath <- system.file("examples", "meme.xml", package="ggmotif")
-#' motif.info <- getMotifFromMEME(data = filepath, format="xml")
+#' filepath <- system.file("examples", "meme.xml", package = "ggmotif")
+#' motif.info <- getMotifFromMEME(data = filepath, format = "xml")
 #' @export
 #'
 #' @return Return a datafram
 utils::globalVariables(c(
-  "V1","five","end.sym","row.num","nchar.1","nchar.2",
-  'seq.id','position','width','input.seq.id','motif_id',
-  'start.position','end.position','start','end','y','Genes',
-  'Motif','x.min','x.max','y.min','y.max',"."
+  "V1", "five", "end.sym", "row.num", "nchar.1", "nchar.2",
+  "seq.id", "position", "width", "input.seq.id", "motif_id",
+  "start.position", "end.position", "start", "end", "y", "Genes",
+  "Motif", "x.min", "x.max", "y.min", "y.max", "."
 ))
 
-getMotifFromMEME <- function(data, format="txt") {
+getMotifFromMEME <- function(data, format = "txt") {
   if (format == "txt") {
     df <- read.table(data, sep = ",") %>%
       dplyr::rename(raw = V1)
@@ -79,7 +79,7 @@ getMotifFromMEME <- function(data, format="txt") {
     }
 
     return(df.motif)
-  }else{
+  } else {
     df <- XML::xmlParse(file = data)
 
     df.root <- XML::xmlRoot(df)
@@ -107,10 +107,10 @@ getMotifFromMEME <- function(data, format="txt") {
     df.motif.info <- NULL
 
     for (i in 1:XML::xmlSize(motif.seq)) {
-      temp <- motif.seq[[i]] %>%
+      temp1 <- motif.seq[[i]] %>%
         XML::xmlToList()
 
-      df.motif.info <- temp[[".attrs"]] %>%
+      df.motif.info <- temp1[[".attrs"]] %>%
         as.data.frame() %>%
         t() %>%
         as.data.frame() %>%
@@ -125,31 +125,37 @@ getMotifFromMEME <- function(data, format="txt") {
     df.gene.motif.info <- NULL
 
     for (i in 1:XML::xmlSize(gene.motif)) {
-      temp <- gene.motif[[i]] %>%
+      temp2 <- gene.motif[[i]] %>%
         XML::xmlToList()
 
-      df.gene.motif.info.temp <- NULL
+      if (is.character(temp2)) {
+        next
+      } else {
+        df.gene.motif.info.temp <- NULL
 
-      for (j in 1:(length(temp) - 1)) {
-        df.gene.motif.info.temp.2 <- temp[[j]] %>%
-          as.data.frame() %>%
-          t() %>%
-          as.data.frame()
-        df.gene.motif.info.temp <- rbind(df.gene.motif.info.temp, df.gene.motif.info.temp.2)
+        for (j in 1:(length(temp2) - 1)) {
+          df.gene.motif.info.temp.2 <- temp2[[j]] %>%
+            as.data.frame() %>%
+            t() %>%
+            as.data.frame()
+          df.gene.motif.info.temp <- rbind(df.gene.motif.info.temp, df.gene.motif.info.temp.2)
+        }
+
+        df.gene.motif.info <- df.gene.motif.info.temp %>%
+          dplyr::mutate(
+            seq.id = temp2[[".attrs"]][[1]],
+            p.value.seq = temp2[[".attrs"]][[2]],
+            num_site4seq = temp2[[".attrs"]][[3]]
+          ) %>%
+          rbind(df.gene.motif.info)
       }
-
-      df.gene.motif.info <- df.gene.motif.info.temp %>%
-        dplyr::mutate(
-          seq.id = temp[[".attrs"]][[1]],
-          p.value.seq = temp[[".attrs"]][[2]],
-          num_site4seq = temp[[".attrs"]][[3]]
-        ) %>%
-        rbind(df.gene.motif.info)
     }
 
     df.gene.motif.info <- df.gene.motif.info %>%
-      dplyr::select('seq.id', 'num_site4seq', 'p.value.seq', 'motif_id',
-                    'strand', 'position', 'pvalue')
+      dplyr::select(
+        "seq.id", "num_site4seq", "p.value.seq", "motif_id",
+        "strand", "position", "pvalue"
+      )
 
 
     all.info <- df.gene.motif.info %>%
@@ -160,7 +166,7 @@ getMotifFromMEME <- function(data, format="txt") {
     col.name <- colnames(all.info)
 
     all.info.final <- all.info %>%
-      dplyr::select('input.seq.id', 'length', col.name[1:16]) %>%
+      dplyr::select("input.seq.id", "length", col.name[1:16]) %>%
       dplyr::mutate(
         position = as.numeric(position),
         width = as.numeric(width)
@@ -170,22 +176,22 @@ getMotifFromMEME <- function(data, format="txt") {
         end.position = position + width
       ) %>%
       dplyr::select(
-        'input.seq.id',
-        'length',
-        'num_site4seq',
-        'p.value.seq',
-        'motif_id',
-        'position',
-        'width',
-        'start.position',
-        'end.position',
-        'pvalue',
-        'ic',
-        're',
-        'llr',
-        'p_value',
-        'e_value',
-        'bayes_threshold'
+        "input.seq.id",
+        "length",
+        "num_site4seq",
+        "p.value.seq",
+        "motif_id",
+        "position",
+        "width",
+        "start.position",
+        "end.position",
+        "pvalue",
+        "ic",
+        "re",
+        "llr",
+        "p_value",
+        "e_value",
+        "bayes_threshold"
       )
     return(all.info.final)
   }

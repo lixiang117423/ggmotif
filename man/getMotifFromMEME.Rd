@@ -16,10 +16,10 @@ Return a datafram
 }
 \examples{
 filepath <- system.file("examples", "meme.txt", package = "ggmotif")
-motif.info <- getMotifFromMEME(data = filepath, format="txt")
+motif.info <- getMotifFromMEME(data = filepath, format = "txt")
 
-filepath <- system.file("examples", "meme.xml", package="ggmotif")
-motif.info <- getMotifFromMEME(data = filepath, format="xml")
+filepath <- system.file("examples", "meme.xml", package = "ggmotif")
+motif.info <- getMotifFromMEME(data = filepath, format = "xml")
 }
 \author{
 Xiang LI <lixiang117423@foxmail.com>
