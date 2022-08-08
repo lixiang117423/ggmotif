@@ -7,6 +7,7 @@
 #'
 #' @param data A data frame file from getMotifFromXML function.
 #' @param tree.path A file path of the correponding phylogenetic tree.
+#' The IDs of the phylogenetic tree must be same as the IDs of sequences used to identify motifs using MEME.
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr select mutate

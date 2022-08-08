@@ -1,0 +1,111 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,inconsolata,hyper]{Rd}
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} % @SET ENCODING@
+% \usepackage{graphicx} % @USE GRAPHICX@
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge Package `ggmotif'}}
+\par\bigskip{\large \today}
+\end{center}
+\inputencoding{utf8}
+\ifthenelse{\boolean{Rd@use@hyper}}{\hypersetup{pdftitle = {ggmotif: Extract and Visualize Motif Information from MEME Software}}}{}\begin{description}
+\raggedright{}
+\item[Type]\AsIs{Package}
+\item[Title]\AsIs{Extract and Visualize Motif Information from MEME Software}
+\item[Version]\AsIs{0.2.0}
+\item[Author]\AsIs{Xiang LI}
+\item[Maintainer]\AsIs{Xiang LI }\email{lixiang117423@foxmail.com}\AsIs{}
+\item[Description]\AsIs{Extract and visualize motif information from XML file from MEME software.
+In biology, a motif is a nucleotide or amino acid sequence pattern that is widespread
+and usually assumed to be related to specifical biological functions.
+There exist many software was used to discover motif sequences from a set of nucleotide
+or amino acid sequences. MEME is almost the most used software to detect motif.
+It's difficult for biologists to extract and visualize the location of a motif
+on sequences from the results from MEME software.}
+\item[License]\AsIs{Artistic-2.0}
+\item[Encoding]\AsIs{UTF-8}
+\item[Depends]\AsIs{R (>= 3.5.0)}
+\item[Imports]\AsIs{tidyverse,dplyr,XML,magrittr,ggplot2,stringr,ggtree,ape,patchwork}
+\item[RoxygenNote]\AsIs{7.2.1}
+\item[Suggests]\AsIs{knitr, rmarkdown}
+\item[VignetteBuilder]\AsIs{knitr}
+\item[NeedsCompilation]\AsIs{no}
+\end{description}
+\Rdcontents{\R{} topics documented:}
+\inputencoding{utf8}
+\HeaderA{getMotifFromMEME}{Extract and Visualize Motif Information from MEME Software}{getMotifFromMEME}
+%
+\begin{Description}\relax
+\code{getMotifFromMEME} Extract motif information from the MEME software results.
+\end{Description}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] A txt file from MEME software.
+
+\item[\code{format}] The result format from MEME, txt or xml.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Return a datafram
+\end{Value}
+%
+\begin{Author}\relax
+Xiang LI <lixiang117423@foxmail.com>
+\end{Author}
+%
+\begin{Examples}
+\begin{ExampleCode}
+filepath <- system.file("examples", "meme.txt", package = "ggmotif")
+motif.info <- getMotifFromMEME(data = filepath, format = "txt")
+
+filepath <- system.file("examples", "meme.xml", package = "ggmotif")
+motif.info <- getMotifFromMEME(data = filepath, format = "xml")
+\end{ExampleCode}
+\end{Examples}
+\inputencoding{utf8}
+\HeaderA{motifLocation}{Extract and Visualize Motif Information from MEME Software}{motifLocation}
+%
+\begin{Description}\relax
+\code{motifLocation} Visualize motif location in a specificial sequences..
+\end{Description}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{data}] A data frame file from getMotifFromXML function.
+
+\item[\code{tree.path}] A file path of the correponding phylogenetic tree.
+The IDs of the phylogenetic tree must be same as the IDs of sequences used to identify motifs using MEME.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Return a plot
+\end{Value}
+%
+\begin{Author}\relax
+Xiang LI <lixiang117423@foxmail.com>
+\end{Author}
+%
+\begin{Examples}
+\begin{ExampleCode}
+# without phylogenetic tree
+filepath <- system.file("examples", "meme.xml", package = "ggmotif")
+motif_extract <- getMotifFromMEME(data = filepath, format="xml")
+motif_plot <- motifLocation(data = motif_extract)
+
+# with phylogenetic tree
+filepath <- system.file("examples", "meme.xml", package = "ggmotif")
+treepath <- system.file("examples", "ara.nwk", package="ggmotif")
+motif_extract <- getMotifFromMEME(data = filepath, format="xml")
+motif_plot <- motifLocation(data = motif_extract, tree = treepath)
+
+\end{ExampleCode}
+\end{Examples}
+\printindex{}
+\end{document}
