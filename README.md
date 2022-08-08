@@ -1,3 +1,9 @@
+
+
+[New version README.md](https://www.web4xiang.top/project/ggmotif/)
+
+---
+
 # ggmotif: An R Package for the extraction and visualization of motifs from MEME software
 
 [![](https://img.shields.io/badge/release version-0.1.2-green.svg)](https://cran.r-project.org/web/packages/ggmotif/index.html)
